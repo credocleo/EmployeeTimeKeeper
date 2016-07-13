@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='/public/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/public/css/bootstrap-theme.min.css')
+		// link(rel='stylesheet', href='/public/css/style.css')
+		title= title
+	body
+		block content
+				form(name="login", action="/login", method="post")
+					input(type="text", placeholder= "First Name", name="first_name")
+					input(type="text", placeholder= "Middle Name", name="middle_name")
+					input(type="text", placeholder= "Last Name", name="last_name")
+					input(type="text", placeholder= "Position Name", name="position")
+					input(type="submit", value="login")
+
+		script(src="/public/js/jquery.js")
+		script(src="/public/js/bootstrap.min.js")
+		script(src="/public/js/bootstrap.js")

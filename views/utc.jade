@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='stylesheet', href='/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/css/bootstrap-theme.min.css')
+		link(rel='stylesheet', href='/css/style.css')
+		title= title
+	body
+		block content
+				div(id="time")
+				div(id="localtime")
+
+				div(id="timein").center
+					button(type="submit", value="timein", onClick='timein') Time In
+
+		script(src="/js/jquery.js")
+		script(src="/js/jquery-ui.js")
+		script(src="/js/bootstrap.min.js")
+		script(src="/js/bootstrap.js")
+
+		script(type="text/javascript").
+			$(document).ready(function(){
+				var date = new Date().toISOString()
+
+				$("#timein").click(function(){
+				$("#time").html(date)
+				$("#localtime").html()
+				});
+
+				function toLocalDate(date) {
+				var newDate = new Date().getTime()+new Date().getTimezoneOffset()*60*1000;
+				var offset = new Date().getTimezoneOffset() / 60;
+				var hours = new Date().getHours();
+				newDate = new Date().setHours(hours - offset);
+				return newDate;   
+				}		
+			});
